@@ -1,4 +1,4 @@
-FROM node:12.18.3
+FROM node:12.18.3-alpine3.9
 
 LABEL MAINTAINER="zhouchijian"
 
@@ -11,6 +11,7 @@ COPY . .
 VOLUME ["./data","./bin"]
 
 RUN npm config set registry https://registry.npm.taobao.org \
+    && npm install \
     && npm install cross-env -g
 
 EXPOSE 80
